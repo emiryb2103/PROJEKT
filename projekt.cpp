@@ -1,6 +1,8 @@
 
 #include <iostream>
+#include <conio.h> //biblioteka do getch()
 using namespace std;
+
 
 //struktura opisujaca postac
 struct P
@@ -15,6 +17,18 @@ int main ()
 //wymiary mapy
 const int W=10;
 const int S=10;
+int m[W][S] = {
+{1,1,1,1,1,1,1,1,1,1},
+{1,0,1,0,0,0,0,0,0,1},
+{1,0,1,1,1,1,1,1,0,1},
+{1,0,0,0,0,0,1,1,0,1},
+{1,0,1,1,1,0,1,1,0,1},
+{1,0,1,0,1,1,1,1,0,1},
+{1,0,1,0,0,0,1,1,0,1},
+{1,0,1,1,1,0,1,1,0,1},
+{1,0,0,0,0,0,0,0,0,1},
+{1,1,1,1,1,1,1,1,1,1}
+                };
 
 //mapa
 char M[W][S];
@@ -34,19 +48,33 @@ gr.hp=100;
 
 char R;
 
- //Petla gry
  while (true)
     {
+        system("cls");
+
     for (int i=0; i<W; i++)
         {
         for (int j=0; j<S; j++)
             {
-            if (i==gr.x && j==gr.y)
-                cout << "P";
-            else cout << M[i][j] << " ";
+            if (i==gr.x && j==gr.y){
+                cout << "P";}
+            else if (m[i][j]==1){
+                cout << "# ";}
+            else {cout <<". ";}
             }
+            cout << endl;
         }
+
+
+
+
+
     }
+cout << "HP: " << gr.hp << endl;
+cout << "Ruch (WASD): ";
+R=_getch(); //czyta klawisz bez klikania enter
+return 0;
+
 
 
 }
